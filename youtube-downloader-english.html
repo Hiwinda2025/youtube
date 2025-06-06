@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Free YouTube Video Downloader Online - Download HD Videos Fast & Easy</title>
+    <meta name="description" content="Free YouTube video downloader online. Download YouTube videos in HD quality - MP4, MP3, 1080p, 720p, 4K. No software installation required. Fast, safe & easy to use.">
+    <meta name="keywords" content="youtube downloader, free youtube downloader, download youtube videos, youtube to mp4, youtube to mp3, online video downloader, youtube converter, download youtube, video downloader online, youtube video download, free video download, youtube mp4, youtube mp3, HD video downloader">
+    <meta name="author" content="YouTube Video Downloader">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free YouTube Video Downloader - Download Videos Online">
+    <meta property="og:description" content="Download YouTube videos for free in HD quality. No software needed. Supports MP4, MP3, 1080p, 720p, 4K formats.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free YouTube Video Downloader Online">
+    <meta name="twitter:description" content="Download YouTube videos in HD quality. Free, fast, and no software installation required.">
+    <link rel="canonical" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="United States">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 10px; 
+            font-weight: 700;
+        }
+
+        .header p { 
+            font-size: 1.2rem; 
+            opacity: 0.95; 
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .input-section {
+            background: linear-gradient(135deg, #f8f9ff, #e8f4fd);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #e1e8ed;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .url-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .btn {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:disabled { 
+            opacity: 0.7; 
+            cursor: not-allowed; 
+            transform: none;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .quick-btn {
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .quick-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .video-info {
+            background: white;
+            border: 2px solid #e1e8ed;
+            border-radius: 15px;
+            padding: 30px;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-preview {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .thumbnail {
+            width: 220px;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.02);
+        }
+
+        .video-details {
+            flex: 1;
+        }
+
+        .video-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2d3436;
+            line-height: 1.3;
+        }
+
+        .video-meta {
+            color: #636e72;
+            font-size: 0.95rem;
+        }
+
+        .video-meta p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-options {
+            display: grid;
+            gap: 25px;
+        }
+
+        .option-card {
+            background: linear-gradient(135deg, #f8f9ff, #ffffff);
+            border: 2px solid #e1e8ed;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.1);
+        }
+
+        .option-title {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .option-desc {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .service-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .service-btn {
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #00b894, #00a085);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        .message {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .error { 
+            background: linear-gradient(135deg, #ffe6e6, #ffd3d3); 
+            color: #d63031; 
+            border-left: 4px solid #d63031; 
+        }
+        
+        .success { 
+            background: linear-gradient(135deg, #e8f5e8, #d4edda); 
+            color: #00b894; 
+            border-left: 4px solid #00b894; 
+        }
+        
+        .info { 
+            background: linear-gradient(135deg, #e8f4fd, #cce7f0); 
+            color: #0984e3; 
+            border-left: 4px solid #0984e3; 
+        }
+
+        .footer {
+            padding: 30px 40px;
+            background: linear-gradient(135deg, #f1f2f6, #e9ecef);
+            text-align: center;
+            color: #636e72;
+            font-size: 0.9rem;
+            border-top: 1px solid #e1e8ed;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer strong {
+            color: #2d3436;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin { 
+            to { transform: rotate(360deg); } 
+        }
+
+        .stats {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .main-content { 
+                padding: 25px; 
+            }
+            
+            .input-group { 
+                flex-direction: column; 
+            }
+            
+            .video-preview { 
+                flex-direction: column; 
+                text-align: center; 
+                align-items: center;
+            }
+            
+            .thumbnail { 
+                width: 100%; 
+                max-width: 300px; 
+            }
+            
+            .features {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .service-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .input-section {
+                padding: 20px;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free YouTube Video Downloader",
+        "description": "Download YouTube videos online for free in HD quality. Supports MP4, MP3, 1080p, 720p, 4K formats without software installation.",
+        "url": "",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Free YouTube video downloads",
+            "HD quality support",
+            "Multiple format options",
+            "No software installation",
+            "Mobile-friendly interface",
+            "Safe and secure"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎬 Free YouTube Video Downloader Online</h1>
+            <p>Download HD Videos Fast & Easy - No Software Installation Required</p>
+            <div class="features">
+                <div class="feature">✨ 100% Free</div>
+                <div class="feature">🚀 No Installation</div>
+                <div class="feature">📱 Mobile Friendly</div>
+                <div class="feature">🔒 Safe & Secure</div>
+                <div class="feature">⚡ Fast & Easy</div>
+            </div>
+            <div class="stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">1M+</span>
+                        <span class="stat-label">Videos Downloaded</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Countries</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="videoUrl" 
+                        class="url-input" 
+                        placeholder="Paste YouTube video URL here to download... (e.g., https://youtube.com/watch?v=...)"
+                        autocomplete="off"
+                    >
+                    <button onclick="parseVideo()" class="btn" id="parseBtn">
+                        🔍 Analyze Video
+                    </button>
+                </div>
+                
+                <div class="quick-actions">
+                    <button class="quick-btn" onclick="fillSample()">📺 Try Sample</button>
+                    <button class="quick-btn" onclick="clearInput()">🗑️ Clear</button>
+                    <button class="quick-btn" onclick="pasteFromClipboard()">📋 Paste</button>
+                    <button class="quick-btn" onclick="showTips()">💡 Tips</button>
+                    <button class="quick-btn" onclick="showFormats()">🎯 Formats</button>
+                </div>
+                
+                <div id="messages"></div>
+            </div>
+
+            <div id="videoInfo" class="video-info">
+                <div class="video-preview">
+                    <img id="thumbnail" class="thumbnail" alt="Video thumbnail">
+                    <div class="video-details">
+                        <h3 id="videoTitle"></h3>
+                        <div id="videoMeta" class="video-meta"></div>
+                    </div>
+                </div>
+
+                <div class="download-options">
+                    <div class="option-card">
+                        <div class="option-title">🌐 Online Download Services (Recommended)</div>
+                        <div class="option-desc">Use reliable third-party online services to download videos. Supports multiple formats and qualities without any software installation.</div>
+                        <div class="service-buttons">
+                            <button onclick="openService('savefrom')" class="service-btn">SaveFrom.net</button>
+                            <button onclick="openService('y2mate')" class="service-btn">Y2Mate</button>
+                            <button onclick="openService('9convert')" class="service-btn">9Convert</button>
+                            <button onclick="openService('ytmp3')" class="service-btn">YTMP3 (Audio)</button>
+                            <button onclick="openService('clipconverter')" class="service-btn">ClipConverter</button>
+                            <button onclick="openService('keepvid')" class="service-btn">KeepVid</button>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-title">🔧 Browser Extensions</div>
+                        <div class="option-desc">Install browser extensions to download videos directly from YouTube pages. One-click download functionality.</div>
+                        <div class="service-buttons">
+                            <button onclick="showExtensions()" class="service-btn">View Extensions</button>
+                            <button onclick="openChromeStore()" class="service-btn">Chrome Store</button>
+                            <button onclick="openFirefoxStore()" class="service-btn">Firefox Store</button>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-title">📱 Mobile Apps</div>
+                        <div class="option-desc">Dedicated mobile applications for downloading YouTube videos on smartphones and tablets.</div>
+                        <div class="service-buttons">
+                            <button onclick="showMobileApps()" class="service-btn">Android Apps</button>
+                            <button onclick="showIOSApps()" class="service-btn">iOS Solutions</button>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-title">💻 Desktop Software</div>
+                        <div class="option-desc">Professional desktop applications with advanced features like batch downloading, playlist support, and format conversion.</div>
+                        <div class="service-buttons">
+                            <button onclick="showDesktopApps()" class="service-btn">Free Software</button>
+                            <button onclick="showPremiumApps()" class="service-btn">Premium Tools</button>
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-title">🎵 Audio Only Downloads</div>
+                        <div class="option-desc">Extract audio from YouTube videos and download as MP3, M4A, or other audio formats.</div>
+                        <div class="service-buttons">
+                            <button onclick="openService('ytmp3')" class="service-btn">MP3 Download</button>
+                            <button onclick="openService('320youtube')" class="service-btn">High Quality Audio</button>
+                            <button onclick="showAudioTools()" class="service-btn">Audio Tools</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content" style="padding: 40px; background: #f8f9ff; border-top: 1px solid #e1e8ed;">
+            <div style="max-width: 800px; margin: 0 auto; color: #636e72; line-height: 1.8;">
+                <h2 style="color: #2d3436; margin-bottom: 20px; font-size: 1.5rem;">Why Choose Our Free YouTube Downloader?</h2>
+                <p style="margin-bottom: 15px;">Our <b>free YouTube video downloader</b> is the fastest and most reliable way to <b>download YouTube videos online</b>. Whether you need to download videos in <b>HD quality</b>, convert <b>YouTube to MP4</b>, or extract <b>YouTube to MP3</b> audio files, our tool provides multiple solutions for all your needs.</p>
+                
+                <h3 style="color: #2d3436; margin: 25px 0 15px 0; font-size: 1.2rem;">Supported Video Quality & Formats</h3>
+                <p style="margin-bottom: 15px;">Download YouTube videos in various qualities including <b>720p HD</b>, <b>1080p Full HD</b>, and even <b>4K resolution</b>. Our platform supports all popular formats: <b>MP4 video downloads</b>, <b>MP3 audio extraction</b>, WEBM, AVI, and more. Perfect for offline viewing on any device.</p>
+                
+                <h3 style="color: #2d3436; margin: 25px 0 15px 0; font-size: 1.2rem;">How to Download YouTube Videos</h3>
+                <p style="margin-bottom: 15px;">Simply paste your <b>YouTube video URL</b> into our downloader, click analyze, and choose from multiple <b>download options</b>. No software installation required - everything works directly in your browser. Compatible with all YouTube video types including music videos, tutorials, vlogs, and educational content.</p>
+                
+                <h3 style="color: #2d3436; margin: 25px 0 15px 0; font-size: 1.2rem;">Safe & Legal YouTube Downloading</h3>
+                <p style="margin-bottom: 0;">Our <b>YouTube video downloader</b> connects you with trusted download services while ensuring your privacy and security. We don't store your data or track your activity. Always respect copyright laws and use downloads for personal, educational purposes only.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p><b>⚠️ Important Notice:</b> Please comply with YouTube's Terms of Service and copyright laws. This tool is for personal use and educational purposes only.</p>
+            <p><b>🌟 Tip:</b> We provide multiple download methods - choose the one that works best for you. Always respect content creators' rights.</p>
+            <p><b>🔒 Privacy:</b> We don't store your data or track your downloads. Your privacy is our priority.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Extract video ID from YouTube URL
+        function extractVideoId(url) {
+            const patterns = [
+                /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+                /youtube\.com\/watch\?.*v=([^&\n?#]+)/
+            ];
+            
+            for (let pattern of patterns) {
+                const match = url.match(pattern);
+                if (match) return match[1];
+            }
+            return null;
+        }
+
+        // Show message to user
+        function showMessage(message, type = 'info') {
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.innerHTML = `<div class="message ${type}">${message}</div>`;
+        }
+
+        // Parse video information
+        async function parseVideo() {
+            const urlInput = document.getElementById('videoUrl');
+            const parseBtn = document.getElementById('parseBtn');
+            const url = urlInput.value.trim();
+
+            if (!url) {
+                showMessage('❌ Please enter a YouTube video URL', 'error');
+                urlInput.focus();
+                return;
+            }
+
+            const videoId = extractVideoId(url);
+            if (!videoId) {
+                showMessage('❌ Please enter a valid YouTube video URL', 'error');
+                urlInput.focus();
+                return;
+            }
+
+            parseBtn.innerHTML = '<span class="loading"></span>Analyzing...';
+            parseBtn.disabled = true;
+
+            try {
+                // Use YouTube oEmbed API to get basic video information
+                const oembedResponse = await fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`);
+                
+                if (!oembedResponse.ok) {
+                    throw new Error('Unable to fetch video information. The video might be private, deleted, or restricted.');
+                }
+
+                const videoData = await oembedResponse.json();
+                
+                // Display video information
+                document.getElementById('thumbnail').src = videoData.thumbnail_url;
+                document.getElementById('videoTitle').textContent = videoData.title;
+                document.getElementById('videoMeta').innerHTML = `
+                    <p>📺 <b>Channel:</b> ${videoData.author_name}</p>
+                    <p>🔗 <b>Video ID:</b> ${videoId}</p>
+                    <p>⏰ <b>Analyzed:</b> ${new Date().toLocaleString()}</p>
+                    <p>🌐 <b>Source:</b> YouTube</p>
+                `;
+
+                // Show video info section
+                document.getElementById('videoInfo').style.display = 'block';
+                document.getElementById('videoInfo').scrollIntoView({ behavior: 'smooth' });
+                
+                showMessage('✅ Video analysis successful! Choose your preferred download method below.', 'success');
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage(`❌ Analysis failed: ${error.message}`, 'error');
+            } finally {
+                parseBtn.innerHTML = '🔍 Analyze Video';
+                parseBtn.disabled = false;
+            }
+        }
+
+        // Open download service
+        function openService(service) {
+            const url = document.getElementById('videoUrl').value.trim();
+            if (!url) {
+                showMessage('❌ Please enter a video URL first', 'error');
+                return;
+            }
+
+            const services = {
+                'savefrom': `https://savefrom.net/#url=${encodeURIComponent(url)}`,
+                'y2mate': `https://www.y2mate.com/youtube/${extractVideoId(url)}`,
+                '9convert': `https://9convert.com/youtube-downloader?url=${encodeURIComponent(url)}`,
+                'ytmp3': `https://ytmp3.nu/youtube-to-mp3/?q=${encodeURIComponent(url)}`,
+                'clipconverter': `https://www.clipconverter.cc/2/?url=${encodeURIComponent(url)}`,
+                'keepvid': `https://keepvid.com/?url=${encodeURIComponent(url)}`,
+                '320youtube': `https://320youtube.com/youtube-to-mp3/?url=${encodeURIComponent(url)}`
+            };
+
+            if (services[service]) {
+                window.open(services[service], '_blank', 'noopener,noreferrer');
+                showMessage(`🌐 Opened ${service} download service in a new tab`, 'success');
+            }
+        }
+
+        // Show browser extensions
+        function showExtensions() {
+            const extensions = [
+                '🔥 <b>Video DownloadHelper</b> - Multi-platform support for Firefox & Chrome',
+                '⭐ <b>YouTube Video Downloader</b> - Simple one-click downloads for Chrome',
+                '🚀 <b>SaveFrom.net Helper</b> - Works across multiple browsers',
+                '💎 <b>4K Video Downloader Browser Extension</b> - High-quality downloads',
+                '🎯 <b>Flash Video Downloader</b> - Supports multiple video sites'
+            ];
+
+            showMessage(`🔧 <b>Recommended Browser Extensions:</b><br>${extensions.join('<br>')}`, 'info');
+        }
+
+        // Show mobile apps
+        function showMobileApps() {
+            const apps = [
+                '📱 <b>TubeMate</b> - Most popular Android YouTube downloader',
+                '🎯 <b>VidMate</b> - Supports multiple video platforms',
+                '✨ <b>Snaptube</b> - User-friendly interface with good features',
+                '🔓 <b>NewPipe</b> - Open-source, ad-free YouTube client',
+                '⚡ <b>YMusic</b> - YouTube music and video downloader'
+            ];
+
+            showMessage(`📱 <b>Recommended Android Apps:</b><br>${apps.join('<br>')}`, 'info');
+        }
+
+        // Show iOS solutions
+        function showIOSApps() {
+            const solutions = [
+                '📱 <b>Documents by Readdle</b> - Use with online services',
+                '🌐 <b>Shortcuts App</b> - Create custom download shortcuts',
+                '📲 <b>MyMedia</b> - Download and manage media files',
+                '🔗 <b>Online Services</b> - Use Safari with download services',
+                '💾 <b>Files App</b> - Save downloads from online tools'
+            ];
+
+            showMessage(`📱 <b>iOS Download Solutions:</b><br>${solutions.join('<br>')}`, 'info');
+        }
+
+        // Show desktop applications
+        function showDesktopApps() {
+            const apps = [
+                '💻 <b>4K Video Downloader</b> - Professional tool with playlist support',
+                '🎬 <b>YTD Video Downloader</b> - Simple and effective batch downloads',
+                '⚡ <b>Free YouTube Download</b> - Fast and reliable downloads',
+                '🎵 <b>Any Video Converter</b> - Download + format conversion',
+                '🔓 <b>youtube-dl</b> - Command-line tool for advanced users'
+            ];
+
+            showMessage(`💻 <b>Free Desktop Software:</b><br>${apps.join('<br>')}`, 'info');
+        }
+
+        // Show premium tools
+        function showPremiumApps() {
+            const apps = [
+                '💎 <b>4K Video Downloader+</b> - Premium features and faster speeds',
+                '🚀 <b>WinX YouTube Downloader</b> - Professional grade tool',
+                '⭐ <b>Allavsoft</b> - Multi-site video downloader',
+                '🎯 <b>VideoProc</b> - Video processing and downloading suite',
+                '🔥 <b>iTubeGo</b> - High-speed batch downloading'
+            ];
+
+            showMessage(`💎 <b>Premium Desktop Tools:</b><br>${apps.join('<br>')}`, 'info');
+        }
+
+        // Show audio tools
+        function showAudioTools() {
+            const tools = [
+                '🎵 <b>YTMP3</b> - Simple YouTube to MP3 converter',
+                '🔊 <b>320YouTube</b> - High-quality audio extraction',
+                '⚡ <b>OnlineVideoConverter</b> - Multiple audio formats',
+                '🎧 <b>MP3FY</b> - Fast YouTube to MP3 conversion',
+                '🎼 <b>FLVTO</b> - YouTube to MP3 and MP4 converter'
+            ];
+
+            showMessage(`🎵 <b>Audio Download Tools:</b><br>${tools.join('<br>')}`, 'info');
+        }
+
+        // Open Chrome Web Store
+        function openChromeStore() {
+            window.open('https://chrome.google.com/webstore/search/youtube%20downloader', '_blank', 'noopener,noreferrer');
+            showMessage('🌐 Opened Chrome Web Store for YouTube downloaders', 'success');
+        }
+
+        // Open Firefox Add-ons
+        function openFirefoxStore() {
+            window.open('https://addons.mozilla.org/search/?q=youtube%20downloader', '_blank', 'noopener,noreferrer');
+            showMessage('🌐 Opened Firefox Add-ons for YouTube downloaders', 'success');
+        }
+
+        // Show usage tips
+        function showTips() {
+            const tips = [
+                '💡 <b>Supported URL formats:</b> youtube.com/watch?v=xxx or youtu.be/xxx',
+                '🔍 <b>Video analysis:</b> Works with most public YouTube videos',
+                '⚡ <b>Best option:</b> Online services require no software installation',
+                '🔒 <b>Private videos:</b> Cannot download private or copyrighted content',
+                '📱 <b>Mobile users:</b> Use dedicated mobile apps for better experience',
+                '🎯 <b>Quality:</b> Available quality depends on the original video',
+                '⏱️ <b>Speed:</b> Download speed varies by service and file size'
+            ];
+
+            showMessage(`💡 <b>Usage Tips & Information:</b><br>${tips.join('<br>')}`, 'info');
+        }
+
+        // Show supported formats
+        function showFormats() {
+            const formats = [
+                '🎬 <b>Video Formats:</b> MP4, WEBM, FLV, AVI, MOV',
+                '🎵 <b>Audio Formats:</b> MP3, M4A, WEBM, WAV, AAC',
+                '📺 <b>Video Quality:</b> 144p, 240p, 360p, 480p, 720p, 1080p, 1440p, 2160p (4K)',
+                '🔊 <b>Audio Quality:</b> 128kbps, 192kbps, 256kbps, 320kbps',
+                '📝 <b>Subtitles:</b> SRT, VTT (available on some services)',
+                '⚡ <b>Note:</b> Available formats depend on the original video and download service'
+            ];
+
+            showMessage(`🎯 <b>Supported Formats & Quality:</b><br>${formats.join('<br>')}`, 'info');
+        }
+
+        // Fill sample URL
+        function fillSample() {
+            document.getElementById('videoUrl').value = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+            showMessage('📺 Sample YouTube URL added (Rick Astley - Never Gonna Give You Up)', 'info');
+        }
+
+        // Clear input
+        function clearInput() {
+            document.getElementById('videoUrl').value = '';
+            document.getElementById('videoInfo').style.display = 'none';
+            showMessage('🗑️ Input cleared', 'info');
+            document.getElementById('videoUrl').focus();
+        }
+
+        // Paste from clipboard
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                if (text && (text.includes('youtube.com') || text.includes('youtu.be'))) {
+                    document.getElementById('videoUrl').value = text;
+                    showMessage('📋 YouTube URL pasted from clipboard', 'success');
+                } else {
+                    showMessage('📋 No YouTube URL found in clipboard', 'error');
+                }
+            } catch (error) {
+                showMessage('📋 Unable to access clipboard. Please paste manually.', 'error');
+            }
+        }
+
+        // Enter key support
+        document.getElementById('videoUrl').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                parseVideo();
+            }
+        });
+
+        // Auto-focus on input
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('videoUrl').focus();
+            showMessage('🎯 Enter a YouTube video URL to get started. Supports all standard YouTube link formats.', 'info');
+        });
+
+        // URL validation on input
+        document.getElementById('videoUrl').addEventListener('input', function(e) {
+            const url = e.target.value.trim();
+            if (url && !extractVideoId(url)) {
+                showMessage('⚠️ Please enter a valid YouTube URL (youtube.com/watch?v=... or youtu.be/...)', 'error');
+            }
+        });
+    </script>
+</body>
+</html> 
